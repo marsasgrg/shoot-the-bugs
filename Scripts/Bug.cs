@@ -15,18 +15,21 @@ public class Bug : MonoBehaviour
         if (transform.position.x > -5){
             if (!dup1){
                 Instantiate(this);
+                dup1 = true;
             }
             else if (transform.position.x > -1)
             {
                 if (!dup2)
                 {
                     Instantiate(this);
+                    dup2 = true;
                 }
                 else if (transform.position.x > 3)
                 {
                     if (!dup3)
                     {
                         Instantiate(this);
+                        dup3 = true;
                     }
                 }
             }
