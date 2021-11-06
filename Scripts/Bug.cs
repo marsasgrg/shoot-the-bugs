@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Bug : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    public int speedX;
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(speedX,0 , 0);
     }
 }
