@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bug : MonoBehaviour
@@ -12,8 +10,9 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(speedX,0 , 0);
-        if (bugCount < 50) {
+        transform.Translate(speedX, 0, 0);
+        if (bugCount < 50)
+        {
             if (transform.position.x > -5)
             {
                 if (!dup1)
@@ -21,8 +20,8 @@ public class Bug : MonoBehaviour
                     Instantiate(this);
                     dup1 = true;
                     bugCount += 1;
-                    
-                    
+
+
                 }
                 else if (transform.position.x > -1)
                 {
@@ -44,7 +43,7 @@ public class Bug : MonoBehaviour
                 }
             }
         }
-        
+
     }
     private void Awake()
     {
@@ -58,5 +57,14 @@ public class Bug : MonoBehaviour
         result -= 3.5;
         transform.position = new Vector3(-7, System.Convert.ToSingle(result), 0);
         Debug.Log(bugCount.ToString());
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "BULLET")
+        {
+            bugCount -= 1;
+            Debug.Log(bugCount);
+            Destroy(this.gameObject);
+        }
     }
 }
