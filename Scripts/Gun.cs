@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     void Bullet()
     {
         GameObject newbull = Instantiate(bullet);
+        newbull.transform.position = new Vector3(System.Convert.ToSingle(-0.566), System.Convert.ToSingle(this.transform.position.y + 0.071));
         newbull.GetComponent<Bullet>().StartFlying();
     }
 
